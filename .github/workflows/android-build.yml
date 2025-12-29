@@ -219,6 +219,8 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
+        # 加上下面这一行，这是解决报错的关键！
+          tag_name: ${{ steps.version.outputs.VERSION }}
           name: "E视界 ${{ steps.version.outputs.VERSION }}"
           body: |
             ## 📦 E视界 ${{ steps.version.outputs.VERSION }}
